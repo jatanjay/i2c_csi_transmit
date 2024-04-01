@@ -1,13 +1,13 @@
 import smbus
 import time
+import sys
 
 bus_number = 1
 bus = smbus.SMBus(bus_number)
 
 def write_command(device_address, register, data):
     bus.write_byte_data(device_address, register, data) 
-    time.sleep(0.01)  
-
+    time.sleep(0.10)  
 
 def send_commands(mode_commands):
     for command in mode_commands.split('\n'):
@@ -21,60 +21,67 @@ def send_commands(mode_commands):
                 print(device_address, register, data)
                 # write_command(device_address, register, data)
 
-
-modes = {"Color Bars 576i MIPI Out":""":Color Bars 576i MIPI Out:
-delay 10 ; 	
-42 0F 00 ; Exit Power Down Mode
-42 00 04 ; ADI Required Write 
-42 0C 37 ; Force Free-run mode 
-42 02 84 ; Force standard to PAL 
-42 14 11 ; Set Free-run pattern to color bars 
-42 03 4E ; ADI Required Write 
-42 04 57 ; Power-up INTRQ pin
-42 13 00 ; Enable INTRQ output driver
-42 17 41 ; select SH1
-42 1D C0 ; Tri-State LLC output driver
-42 52 CB ; ADI Required Write
-42 80 51 ; ADI Required Write
-42 81 51 ; ADI Required Write
-42 82 68 ; ADI Required Write
-42 5D 3C ; Enable Diagnostic pin 1 - Level=1.125V
-42 5E 3C ; Enable Diagnostic pin 2 - Level=1.125V
-42 FE 88 ; Set CSI Map Address
-88 DE 02 ; Power up MIPI D-PHY
-88 D2 F7 ; ADI Required Write
-88 D8 65 ; ADI Required Write
-88 E0 09 ; ADI Required Write 
-88 2C 00 ; ADI Required Write
-88 00 00 ; Power up MIPI CSI-2 Tx --done--
-End""",
-"CVBS Single Ended In Ain 1":""":AUTODETECT CVBS Single Ended In Ain 1, MIPI Out:
-delay 10 ; 
-42 0F 00 ; Exit Power Down Mode
-42 00 00 ; INSEL = CVBS in on Ain 1
-42 0E 80 ; ADI Required Write 
-42 9C 00 ; ADI Required Write 
-42 9C FF ; ADI Required Write 
-42 0E 00 ; Enter User Sub Map
-42 03 4E ; ADI Required Write 
-42 04 57 ; Power-up INTRQ pin
-42 13 00 ; Enable INTRQ output driver
-42 17 41 ; select SH1
-42 1D C0 ; Tri-State LLC output driver
-42 52 CB ; ADI Required Write
-42 80 51 ; ADI Required Write
-42 81 51 ; ADI Required Write
-42 82 68 ; ADI Required Write
-42 5D 3C ; Enable Diagnostic pin 1 - Level=1.125V
-42 5E 3C ; Enable Diagnostic pin 2 - Level=1.125V
-42 FE 88 ; Set CSI Map Address
-88 DE 02 ; Power up MIPI D-PHY
-88 D2 F7 ; ADI Required Write
-88 D8 65 ; ADI Required Write
-88 E0 09 ; ADI Required Write 
-88 2C 00 ; ADI Required Write
-88 00 00 ; Power up MIPI CSI-2 Tx --done--
-End""",
+modes = {
+    "Continuous mode": """
+    Loop through all modes continuously until 'q' is pressed:
+    """,
+    "Color Bars 576i MIPI Out": """
+    :Color Bars 576i MIPI Out:
+    delay 10 ; 	
+    42 0F 00 ; Exit Power Down Mode
+    42 00 04 ; ADI Required Write 
+    42 0C 37 ; Force Free-run mode 
+    42 02 84 ; Force standard to PAL 
+    42 14 11 ; Set Free-run pattern to color bars 
+    42 03 4E ; ADI Required Write 
+    42 04 57 ; Power-up INTRQ pin
+    42 13 00 ; Enable INTRQ output driver
+    42 17 41 ; select SH1
+    42 1D C0 ; Tri-State LLC output driver
+    42 52 CB ; ADI Required Write
+    42 80 51 ; ADI Required Write
+    42 81 51 ; ADI Required Write
+    42 82 68 ; ADI Required Write
+    42 5D 3C ; Enable Diagnostic pin 1 - Level=1.125V
+    42 5E 3C ; Enable Diagnostic pin 2 - Level=1.125V
+    42 FE 88 ; Set CSI Map Address
+    88 DE 02 ; Power up MIPI D-PHY
+    88 D2 F7 ; ADI Required Write
+    88 D8 65 ; ADI Required Write
+    88 E0 09 ; ADI Required Write 
+    88 2C 00 ; ADI Required Write
+    88 00 00 ; Power up MIPI CSI-2 Tx --done--
+    End
+    """,
+    "CVBS Single Ended In Ain 1": """
+    :AUTODETECT CVBS Single Ended In Ain 1, MIPI Out:
+    delay 10 ; 
+    42 0F 00 ; Exit Power Down Mode
+    42 00 00 ; INSEL = CVBS in on Ain 1
+    42 0E 80 ; ADI Required Write 
+    42 9C 00 ; ADI Required Write 
+    42 9C FF ; ADI Required Write 
+    42 0E 00 ; Enter User Sub Map
+    42 03 4E ; ADI Required Write 
+    42 04 57 ; Power-up INTRQ pin
+    42 13 00 ; Enable INTRQ output driver
+    42 17 41 ; select SH1
+    42 1D C0 ; Tri-State LLC output driver
+    42 52 CB ; ADI Required Write
+    42 80 51 ; ADI Required Write
+    42 81 51 ; ADI Required Write
+    42 82 68 ; ADI Required Write
+    42 5D 3C ; Enable Diagnostic pin 1 - Level=1.125V
+    42 5E 3C ; Enable Diagnostic pin 2 - Level=1.125V
+    42 FE 88 ; Set CSI Map Address
+    88 DE 02 ; Power up MIPI D-PHY
+    88 D2 F7 ; ADI Required Write
+    88 D8 65 ; ADI Required Write
+    88 E0 09 ; ADI Required Write 
+    88 2C 00 ; ADI Required Write
+    88 00 00 ; Power up MIPI CSI-2 Tx --done--
+    End
+    """,
 "CVBS Single Ended In Ain 2":"""AUTODETECT CVBS Single Ended In Ain 2, MIPI Out: 
 delay 10 ; 
 42 0F 00 ; Exit Power Down Mode
@@ -155,16 +162,24 @@ delay 10 ;
 88 E0 09 ; ADI Required Write 
 88 2C 00 ; ADI Required Write
 88 00 00 ; Power up MIPI CSI-2 Tx --done--
-End""",
+End"""
 }
 
-
+def run_continuous_mode():
+    while True:
+        for mode_index, mode in enumerate(list(modes.keys())[1:], start=1):
+            print(f"\nRunning Mode {mode_index}: {mode}")
+            send_commands(modes[mode])
+            if input("Press 'q' to quit, or any other key to continue: ").lower() == 'q':
+                return
 
 print("Choose a mode:")
 for idx, mode in enumerate(modes):
-    print(f"{idx + 1}: {mode}")
+    print(f"{idx}: {mode}")
 
-selected_mode_index = int(input("Enter the mode number: ")) - 1
-selected_mode = list(modes.keys())[selected_mode_index]
-
-send_commands(modes[selected_mode])
+selected_mode_index = int(input("Enter the mode number: "))
+if selected_mode_index == 0:
+    run_continuous_mode()
+else:
+    selected_mode = list(modes.keys())[selected_mode_index]
+    send_commands(modes[selected_mode])
