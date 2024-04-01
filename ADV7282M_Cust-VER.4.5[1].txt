@@ -273,7 +273,7 @@ End
 ##CVBS Autodetect, Progressive Out##
 :I2P AUTODETECT CVBS Single Ended In Ain 1, 480p/576p MIPI Out:
 delay 10 ; 
-42 0F 00 ; Exit power down mode
+42 0F 00 ;   Exit power down mode
 42 00 00 ; INSEL = CVBS in on Ain 1
 42 0E 80 ; ADI Required Write 
 42 9C 00 ; ADI Required Write 
