@@ -1,0 +1,933 @@
+;;DecoderLegacySupport = True;;
+;;Reset = True;;
+;;ReadInterface = True;;
+
+##ASettings##
+:ES2 Cust Version 4.5 September 6th 2013 ADV7282-M:
+End
+
+##Free-Run Mode##
+
+:Color Bars 576i MIPI Out:
+delay 10 ; 	
+42 0F 00 ; Exit Power Down Mode
+42 00 04 ; ADI Required Write 
+42 0C 37 ; Force Free-run mode 
+42 02 84 ; Force standard to PAL 
+42 14 11 ; Set Free-run pattern to color bars 
+42 03 4E ; ADI Required Write 
+42 04 57 ; Power-up INTRQ pin
+42 13 00 ; Enable INTRQ output driver
+42 17 41 ; select SH1
+42 1D C0 ; Tri-State LLC output driver
+42 52 CB ; ADI Required Write
+42 80 51 ; ADI Required Write
+42 81 51 ; ADI Required Write
+42 82 68 ; ADI Required Write
+42 5D 3C ; Enable Diagnostic pin 1 - Level=1.125V
+42 5E 3C ; Enable Diagnostic pin 2 - Level=1.125V
+42 FE 88 ; Set CSI Map Address
+88 DE 02 ; Power up MIPI D-PHY
+88 D2 F7 ; ADI Required Write
+88 D8 65 ; ADI Required Write
+88 E0 09 ; ADI Required Write 
+88 2C 00 ; ADI Required Write
+88 00 00 ; Power up MIPI CSI-2 Tx --done--
+End	
+
+:Color Bars 480i MIPI Out:
+delay 10 ; 
+42 0F 00 ; Exit Power Down Mode
+42 00 04 ; ADI Required Write 
+42 0C 37 ; Force Free-run mode 
+42 02 54 ; Force standard to NTSC-M 
+42 14 11 ; Set Free-run pattern to color bars 
+42 03 4E ; ADI Required Write 
+42 04 57 ; Power-up INTRQ pin
+42 13 00 ; Enable INTRQ output driver
+42 17 41 ; select SH1
+42 1D C0 ; Tri-State LLC output driver
+42 52 CB ; ADI Required Write
+42 80 51 ; ADI Required Write
+42 81 51 ; ADI Required Write
+42 82 68 ; ADI Required Write
+42 5D 3C ; Enable Diagnostic pin 1 - Level=1.125V
+42 5E 3C ; Enable Diagnostic pin 2 - Level=1.125V
+42 FE 88 ; Set CSI Map Address
+88 DE 02 ; Power up MIPI D-PHY
+88 D2 F7 ; ADI Required Write
+88 D8 65 ; ADI Required Write
+88 E0 09 ; ADI Required Write 
+88 2C 00 ; ADI Required Write
+88 00 00 ; Power up MIPI CSI-2 Tx --done--
+End
+
+:Color Bars 576p MIPI Out:
+delay 10 ;
+42 0F 00 ; Exit power down mode
+42 00 04 ; ADI Required Write 
+42 0C 37 ; Force Free-run mode 
+42 02 84 ; Force standard to PAL 
+42 14 11 ; Set Free-run pattern to color bars
+42 03 4E ; ADI Required Write
+42 04 57 ; Enable Intrq pin
+42 13 00 ; Enable INTRQ output driver
+42 17 41 ; select SH1
+42 1D C0 ; Tri-State LLC output driver
+42 52 CB ; ADI Required Write
+42 80 51 ; ADI Required Write
+42 81 51 ; ADI Required Write
+42 82 68 ; ADI Required Write
+42 5D 3C ; Enable Diagnostic pin 1 - Level=1.125V
+42 5E 3C ; Enable Diagnostic pin 2 - Level=1.125V
+42 FD 84 ; Set VPP Map Address
+84 A3 00 ; ADI Required Write
+84 5B 00 ; Advanced Timing Enabled
+84 55 80 ; Enable I2P
+42 FE 88 ; Set CSI Map Address
+88 01 20 ; ADI Required Write
+88 02 28 ; ADI Required Write
+88 03 38 ; ADI Required Write
+88 04 30 ; ADI Required Write
+88 05 30 ; ADI Required Write
+88 06 80 ; ADI Required Write
+88 07 70 ; ADI Required Write
+88 08 50 ; ADI Required Write
+88 DE 02 ; Power up D-PHY
+88 D2 F7 ; ADI Required Write
+88 D8 65 ; ADI Required Write
+88 E0 09 ; ADI Required Write
+88 2C 00 ; ADI Required Write
+88 1D 80 ; ADI Required Write
+88 00 00 ; Power up MIPI CSI-2 Tx --done--
+End
+
+:Color Bars 480p MIPI Out:
+delay 10 ;
+42 0F 00 ; Exit power down mode
+42 00 04 ; ADI Required Write 
+42 0C 37 ; Force Free-run mode 
+42 02 54 ; Force standard to NTSC-M 
+42 14 11 ; Set Free-run pattern to color bars
+42 03 4E ; ADI Required Write
+42 04 57 ; Enable Intrq pin
+42 13 00 ; Enable INTRQ output driver
+42 17 41 ; select SH1
+42 1D C0 ; Tri-State LLC output driver
+42 52 CB ; ADI Required Write
+42 80 51 ; ADI Required Write
+42 81 51 ; ADI Required Write
+42 82 68 ; ADI Required Write
+42 5D 3C ; Enable Diagnostic pin 1 - Level=1.125V
+42 5E 3C ; Enable Diagnostic pin 2 - Level=1.125V
+42 FD 84 ; Set VPP Map Address
+84 A3 00 ; ADI Required Write
+84 5B 00 ; Advanced Timing Enabled
+84 55 80 ; Enable I2P
+42 FE 88 ; Set CSI Map Address
+88 01 20 ; ADI Required Write
+88 02 28 ; ADI Required Write
+88 03 38 ; ADI Required Write
+88 04 30 ; ADI Required Write
+88 05 30 ; ADI Required Write
+88 06 80 ; ADI Required Write
+88 07 70 ; ADI Required Write
+88 08 50 ; ADI Required Write
+88 DE 02 ; Power up D-PHY
+88 D2 F7 ; ADI Required Write
+88 D8 65 ; ADI Required Write
+88 E0 09 ; ADI Required Write
+88 2C 00 ; ADI Required Write
+88 1D 80 ; ADI Required Write
+88 00 00 ; Power up MIPI CSI-2 Tx --done--
+End
+
+##CVBS AUTODETECT##
+:AUTODETECT CVBS Single Ended In Ain 1, MIPI Out:
+delay 10 ; 
+42 0F 00 ; Exit Power Down Mode
+42 00 00 ; INSEL = CVBS in on Ain 1
+42 0E 80 ; ADI Required Write 
+42 9C 00 ; ADI Required Write 
+42 9C FF ; ADI Required Write 
+42 0E 00 ; Enter User Sub Map
+42 03 4E ; ADI Required Write 
+42 04 57 ; Power-up INTRQ pin
+42 13 00 ; Enable INTRQ output driver
+42 17 41 ; select SH1
+42 1D C0 ; Tri-State LLC output driver
+42 52 CB ; ADI Required Write
+42 80 51 ; ADI Required Write
+42 81 51 ; ADI Required Write
+42 82 68 ; ADI Required Write
+42 5D 3C ; Enable Diagnostic pin 1 - Level=1.125V
+42 5E 3C ; Enable Diagnostic pin 2 - Level=1.125V
+42 FE 88 ; Set CSI Map Address
+88 DE 02 ; Power up MIPI D-PHY
+88 D2 F7 ; ADI Required Write
+88 D8 65 ; ADI Required Write
+88 E0 09 ; ADI Required Write 
+88 2C 00 ; ADI Required Write
+88 00 00 ; Power up MIPI CSI-2 Tx --done--
+End
+
+:AUTODETECT CVBS Single Ended In Ain 2, MIPI Out: 
+delay 10 ; 
+42 0F 00 ; Exit Power Down Mode
+42 00 01 ; INSEL = CVBS in on Ain 2
+42 0E 80 ; ADI Required Write 
+42 9C 00 ; ADI Required Write 
+42 9C FF ; ADI Required Write 
+42 0E 00 ; Enter User Sub Map
+42 03 4E ; ADI Required Write 
+42 04 57 ; Enable Intrq pin
+42 13 00 ; Enable INTRQ output driver
+42 17 41 ; select SH1
+42 1D C0 ; Tri-State LLC output driver
+42 52 CB ; ADI Required Write
+42 80 51 ; ADI Required Write
+42 81 51 ; ADI Required Write
+42 82 68 ; ADI Required Write
+42 5D 3C ; Enable Diagnostic pin 1 - Level=1.125V
+42 5E 3C ; Enable Diagnostic pin 2 - Level=1.125V
+42 FE 88 ; Set CSI Map Address
+88 DE 02 ; Power up MIPI D-PHY
+88 D2 F7 ; ADI Required Write
+88 D8 65 ; ADI Required Write
+88 E0 09 ; ADI Required Write 
+88 2C 00 ; ADI Required Write
+88 00 00 ; Power up MIPI CSI-2 Tx --done--
+End
+
+:AUTODETECT CVBS Differential In Ain3,4, MIPI Out:
+delay 10 ; 
+42 00 0F ; INSEL = CVBS_P in on Ain 3, CVBS_N in on Ain 4
+42 0F 00 ; ADI Required Write 
+42 0E 80 ; ADI Required Write 
+42 9C 00 ; ADI Required Write 
+42 9C FF ; ADI Required Write 
+42 0E 00 ; Enter User Sub Map
+42 03 4E ; ADI Required Write 
+42 04 57 ; Enable Intrq pin
+42 13 00 ; Enable INTRQ output driver
+42 17 41 ; select SH1
+42 1D C0 ; Tri-State LLC output driver 
+42 52 C0 ; ADI Required Write 
+42 80 51 ; ADI Required Write
+42 81 51 ; ADI Required Write
+42 82 68 ; ADI Required Write
+42 5D 3C ; Enable Diagnostic pin 1 - Level=1.125V
+42 5E 3C ; Enable Diagnostic pin 2 - Level=1.125V
+42 5F A8 ; SHA gain for Div4
+42 5A 90 ; ADI Required Write
+42 60 B0 ; ADI Required Write
+42 0E 80 ; ADI Required Write
+42 B6 08 ; ADI Required Write
+42 C0 A0 ; ADI Required Write
+42 0E 00 ; ADI Required Write
+42 FE 88 ; Set CSI Map Address
+88 DE 02 ; Power up MIPI D-PHY
+88 D2 F7 ; ADI Required Write
+88 D8 65 ; ADI Required Write
+88 E0 09 ; ADI Required Write
+88 2C 00 ; ADI Required Write
+88 00 00 ; Power up MIPI CSI-2 Tx --done--
+End
+
+:AUTODETECT CVBS Differential In Ain5,6, MIPI Out:
+delay 10 ; 
+42 0F 00 ; Exit power down mode 
+42 00 11 ; INSEL = CVBS_P in on Ain 5, CVBS_N in on Ain 6
+42 0E 80 ; ADI Required Write 
+42 9C 00 ; ADI Required Write 
+42 9C FF ; ADI Required Write 
+42 0E 00 ; Enter User Sub Map
+42 03 4E ; ADI Required Write
+42 04 57 ; Enable Intrq pin
+42 13 00 ; Enable INTRQ output driver
+42 17 41 ; select SH1
+42 1D C0 ; Tri-State LLC output driver 
+42 52 C0 ; ADI Required Write 
+42 80 51 ; ADI Required Write
+42 81 51 ; ADI Required Write
+42 82 68 ; ADI Required Write
+42 5D 3C ; Enable Diagnostic pin 1 - Level=1.125V
+42 5E 3C ; Enable Diagnostic pin 2 - Level=1.125V
+42 5F A8 ; SHA gain for Div4
+42 5A 90 ; ADI Required Write
+42 60 B0 ; ADI Required Write
+42 0E 80 ; ADI Required Write
+42 B6 08 ; ADI Required Write
+42 C0 A0 ; ADI Required Write
+42 0E 00 ; ADI Required Write
+42 FE 88 ; Set CSI Map Address
+88 DE 02 ; Power up MIPI D-PHY
+88 D2 F7 ; ADI Required Write
+88 D8 65 ; ADI Required Write
+88 E0 09 ; ADI Required Write
+88 2C 00 ; ADI Required Write
+88 00 00 ; Power up MIPI CSI-2 Tx --done--
+End
+
+
+##CVBS Autodetect, Progressive Out##
+:I2P AUTODETECT CVBS Single Ended In Ain 1, 480p/576p MIPI Out:
+delay 10 ; 
+42 0F 00 ; Exit power down mode
+42 00 00 ; INSEL = CVBS in on Ain 1
+42 0E 80 ; ADI Required Write 
+42 9C 00 ; ADI Required Write 
+42 9C FF ; ADI Required Write 
+42 0E 00 ; Enter User Sub Map
+42 03 4E ; ADI Required Write
+42 04 57 ; Enable Intrq pin
+42 13 00 ; Enable INTRQ output driver
+42 17 41 ; select SH1
+42 1D C0 ; Tri-State LLC output driver
+42 52 CB ; ADI Required Write
+42 80 51 ; ADI Required Write
+42 81 51 ; ADI Required Write
+42 82 68 ; ADI Required Write
+42 5D 3C ; Enable Diagnostic pin 1 - Level=1.125V
+42 5E 3C ; Enable Diagnostic pin 2 - Level=1.125V
+42 FD 84 ; Set VPP Map Address
+84 A3 00 ; ADI Required Write
+84 5B 00 ; Advanced Timing Enabled
+84 55 80 ; Enable I2P
+42 FE 88 ; Set CSI Map Address
+88 01 20 ; ADI Required Write
+88 02 28 ; ADI Required Write
+88 03 38 ; ADI Required Write
+88 04 30 ; ADI Required Write
+88 05 30 ; ADI Required Write
+88 06 80 ; ADI Required Write
+88 07 70 ; ADI Required Write
+88 08 50 ; ADI Required Write
+88 DE 02 ; Power up D-PHY
+88 D2 F7 ; ADI Required Write
+88 D8 65 ; ADI Required Write
+88 E0 09 ; ADI Required Write
+88 2C 00 ; ADI Required Write
+88 1D 80 ; ADI Required Write
+88 00 00 ; Power up MIPI CSI-2 Tx --done--
+End
+
+:I2P AUTODETECT CVBS Single Ended In Ain 2, 480p/576p MIPI Out:
+delay 10 ; 
+42 0F 00 ; Exit power down mode
+42 00 01 ; INSEL = CVBS in on Ain 2
+42 0E 80 ; ADI Required Write 
+42 9C 00 ; ADI Required Write 
+42 9C FF ; ADI Required Write 
+42 0E 00 ; Enter User Sub Map
+42 03 4E ; ADI Required Write
+42 04 57 ; Enable Intrq pin
+42 13 00 ; Enable INTRQ output driver
+42 17 41 ; select SH1
+42 1D C0 ; Tri-State LLC output driver
+42 52 CB ; ADI Required Write
+42 80 51 ; ADI Required Write
+42 81 51 ; ADI Required Write
+42 82 68 ; ADI Required Write
+42 5D 3C ; Enable Diagnostic pin 1 - Level=1.125V
+42 5E 3C ; Enable Diagnostic pin 2 - Level=1.125V
+42 FD 84 ; Set VPP Map Address
+84 A3 00 ; ADI Required Write
+84 5B 00 ; Advanced Timing Enabled
+84 55 80 ; Enable I2P
+42 FE 88 ; Set CSI Map Address
+88 01 20 ; ADI Required Write
+88 02 28 ; ADI Required Write
+88 03 38 ; ADI Required Write
+88 04 30 ; ADI Required Write
+88 05 30 ; ADI Required Write
+88 06 80 ; ADI Required Write
+88 07 70 ; ADI Required Write
+88 08 50 ; ADI Required Write
+88 DE 02 ; Power up D-PHY
+88 D2 F7 ; ADI Required Write
+88 D8 65 ; ADI Required Write
+88 E0 09 ; ADI Required Write
+88 2C 00 ; ADI Required Write
+88 1D 80 ; ADI Required Write
+88 00 00 ; Power up MIPI CSI-2 Tx --done--
+End
+
+:I2P AUTODETECT CVBS Differential In Ain3,4, 480p/576p MIPI Out:
+delay 10 ; 
+42 0F 00 ; Exit Power Down Mode
+42 00 0F ; INSEL = CVBS_P in on Ain 3, CVBS_N in on Ain4
+42 0E 80 ; ADI Required Write 
+42 9C 00 ; ADI Required Write
+42 9C FF ; ADI Required Write
+42 0E 00 ; Enter user Map
+42 03 4E ; ADI Required Write
+42 04 57 ; Power-up INTRQ pad
+42 13 00 ; Enable INTRQ output driver
+42 17 41 ; select SH1
+42 1D C0 ; Tri-S LLC output driver
+42 52 C0 ; ADI Required Write
+42 80 51 ; ADI Required Write
+42 81 51 ; ADI Required Write
+42 82 68 ; ADI Required Write
+42 5D 3C ; Enable Diagnostic pin 1 - Level=1.125V
+42 5E 3C ; Enable Diagnostic pin 2 - Level=1.125V
+42 5F A8 ; SHA gain for Div4
+42 5A 90 ; ADI Required Write
+42 60 B0 ; ADI Required Write
+42 0E 80 ; ADI Required Write
+42 B6 08 ; ADI Required Write
+42 C0 A0 ; ADI Required Write
+42 0E 00 ; ADI Required Write
+42 FD 84 ; Set VPP Map Address
+84 A3 00 ; ADI Required Write
+84 5B 00 ; Advanced Timing Enabled
+84 55 80 ; Enable I2P
+42 FE 88 ; Set CSI Map Address
+88 01 20 ; ADI Required Write
+88 02 28 ; ADI Required Write
+88 03 38 ; ADI Required Write
+88 04 30 ; ADI Required Write
+88 05 30 ; ADI Required Write
+88 06 80 ; ADI Required Write
+88 07 70 ; ADI Required Write
+88 08 50 ; ADI Required Write
+88 DE 02 ; Power up MIPI D-PHY
+88 D2 F7 ; ADI Required Write
+88 D8 65 ; ADI Required Write
+88 E0 09 ; ADI Required Write
+88 2C 00 ; ADI Required Write
+88 1D 80 ; ADI Required Write
+88 00 00 ; Power up CSI TX --done--
+End
+
+:I2P AUTODETECT CVBS Differential In Ain5,6, 480p/576p MIPI Out:
+delay 10 ; 
+42 0F 00 ; Exit Power Down Mode
+42 00 11 ; INSEL = CVBS_P in on Ain 5, CVBS_N in on Ain 6
+42 0E 80 ; ADI Required Write 
+42 9C 00 ; ADI Required Write
+42 9C FF ; ADI Required Write
+42 0E 00 ; Enter user Map
+42 03 4E ; ADI Required Write
+42 04 57 ; Power-up INTRQ pad
+42 13 00 ; Enable INTRQ output driver
+42 17 41 ; select SH1
+42 1D C0 ; Tri-S LLC output driver
+42 52 C0 ; ADI Required Write
+42 80 51 ; ADI Required Write
+42 81 51 ; ADI Required Write
+42 82 68 ; ADI Required Write
+42 5D 3C ; Enable Diagnostic pin 1 - Level=1.125V
+42 5E 3C ; Enable Diagnostic pin 2 - Level=1.125V
+42 5F A8 ; SHA gain for Div4
+42 5A 90 ; ADI Required Write
+42 60 B0 ; ADI Required Write
+42 0E 80 ; ADI Required Write
+42 B6 08 ; ADI Required Write
+42 C0 A0 ; ADI Required Write
+42 0E 00 ; ADI Required Write
+42 FD 84 ; Set VPP Map Address
+84 A3 00 ; ADI Required Write
+84 5B 00 ; Advanced Timing Enabled
+84 55 80 ; Enable I2P
+42 FE 88 ; Set CSI Map Address
+88 01 20 ; ADI Required Write
+88 02 28 ; ADI Required Write
+88 03 38 ; ADI Required Write
+88 04 30 ; ADI Required Write
+88 05 30 ; ADI Required Write
+88 06 80 ; ADI Required Write
+88 07 70 ; ADI Required Write
+88 08 50 ; ADI Required Write
+88 DE 02 ; Power up MIPI D-PHY
+88 D2 F7 ; ADI Required Write
+88 D8 65 ; ADI Required Write
+88 E0 09 ; ADI Required Write
+88 2C 00 ; ADI Required Write
+88 1D 80 ; ADI Required Write
+88 00 00 ; Power up CSI TX --done--
+End
+
+##CVBS FAST Switch##
+:Fast Switch CVBS Single Ended In Ain 1, MIPI Out:
+delay 10 ;
+42 0F 00 ; Exit Power Down Mode
+42 00 00 ; INSEL = CVBS in on Ain 1
+42 0E 80 ; ADI Required Write
+42 9C 00 ; ADI Required Write
+42 9C FF ; ADI Required Write
+42 0E 00 ; Enter user Map
+42 03 4E ; ADI Required Write
+42 04 57 ; Power-up INTRQ pin
+42 13 00 ; Enable INTRQ output driver
+42 17 41 ; select SH1
+42 1D C0 ; Tri-S LLC output driver
+42 52 CB ; ADI Required Write
+42 80 51 ; ADI Required Write 
+42 81 51 ; ADI Required Write 
+42 82 68 ; ADI Required Write 
+42 5D 3C ; Enable Diagnostic pin 1 - Level=1.125V 
+42 5E 3C ; Enable Diagnostic pin 2 - Level=1.125V 
+42 0E 80 ; ADI Required Write
+42 D9 44 ; ADI Required Write
+42 0E 00 ; ADI Required Write
+42 0E 40 ; Select User Sub Map 2
+42 E0 01 ; Select fast Switching Mode
+42 0E 00 ; Select User Map
+42 FE 88 ; Set CSI Map Address
+88 DE 02 ; Power up D-Phy
+88 D2 F7 ; ADI Required Write
+88 D8 65 ; ADI Required Write
+88 E0 09 ; ADI Required Write
+88 2C 00 ; ADI Required Write
+88 00 00 ; Power up CSI Tx --done--
+End
+
+:Fast Switch CVBS Single Ended In Ain 2, MIPI Out:
+delay 10 ; 
+42 0F 00 ; Exit Power Down Mode
+42 00 01 ; INSEL = CVBS in on Ain 2
+42 0E 80 ; ADI Required Write
+42 9C 00 ; ADI Required Write
+42 9C FF ; ADI Required Write
+42 0E 00 ; Enter user Map
+42 03 4E ; ADI Required Write
+42 04 57 ; Power-up INTRQ pin
+42 13 00 ; Enable INTRQ output driver
+42 17 41 ; select SH1
+42 1D C0 ; Tri-S LLC output driver
+42 52 CB ; ADI Required Write
+42 80 51 ; ADI Required Write 
+42 81 51 ; ADI Required Write 
+42 82 68 ; ADI Required Write 
+42 5D 3C ; Enable Diagnostic pin 1 - Level=1.125V 
+42 5E 3C ; Enable Diagnostic pin 2 - Level=1.125V 
+42 0E 80 ; ADI Required Write
+42 D9 44 ; ADI Required Write
+42 0E 40 ; Select User Sub Map 2
+42 E0 01 ; Select fast Switching Mode
+42 0E 00 ; Select User Map
+42 FE 88 ; Set CSI Map Address
+88 DE 02 ; Power up D-Phy
+88 D2 F7 ; ADI Required Write
+88 D8 65 ; ADI Required Write
+88 E0 09 ; ADI Required Write
+88 2C 00 ; ADI Required Write
+88 00 00 ; Power up CSI Tx --done--
+End
+
+:Fast Switch CVBS Differential In Ain3,4, MIPI Out:
+delay 10 ; 
+42 0F 00 ; Exit Power Down Mode
+42 00 0F ; INSEL = CVBS_P in on Ain 3, CVBS_N in on Ain4
+42 0E 80 ; ADI Required Write
+42 9C 00 ; ADI Required Write
+42 9C FF ; ADI Required Write
+42 0E 00 ; Enter user Map
+42 03 4E ; ADI Required Write
+42 04 57 ; Power-up INTRQ pad
+42 13 00 ; Enable INTRQ output driver
+42 17 41 ; select SH1
+42 1D C0 ; Tri-S LLC output driver
+42 52 C0 ; ADI Required Write
+42 80 51 ; ADI Required Write
+42 81 51 ; ADI Required Write
+42 82 68 ; ADI Required Write
+42 5D 3C ; Enable Diagnostic pin 1 - Level=1.125V
+42 5E 3C ; Enable Diagnostic pin 1 - Level=1.125V
+42 5F A8 ; SHA gain for Div4
+42 5A 90 ; ADI Required Write
+42 60 B0 ; ADI Required Write
+42 0E 80 ; ADI Required Write
+42 B6 08 ; ADI Required Write
+42 C0 A0 ; ADI Required Write
+42 D9 44 ; ADI Required Writ
+42 0E 40 ; Select User Sub Map 2
+42 E0 01 ; Select fast Switching Mode
+42 0E 00 ; Select User Map
+42 FE 88 ; Set CSI Map Address
+88 DE 02 ; Power up D-PHY
+88 D2 F7 ; ADI Required Write
+88 D8 65 ; ADI Required Write
+88 E0 09 ; ADI Required Write
+88 2C 00 ; ADI Required Write
+88 00 00 ; Power up CSI Tx --done--
+End
+
+:Fast Switch CVBS Differential In Ain5,6, MIPI Out:
+delay 10 ; 
+42 0F 00 ; Exit Power Down Mode
+42 00 11 ; INSEL = CVBS_P in on Ain 5, CVBS_N in on Ain6
+42 0E 80 ; ADI Required Write
+42 9C 00 ; ADI Required Write
+42 9C FF ; ADI Required Write
+42 0E 00 ; Enter user Map
+42 03 4E ; ADI Required Write
+42 04 57 ; Power-up INTRQ pad
+42 13 00 ; Enable INTRQ output driver
+42 17 41 ; select SH1
+42 1D C0 ; Tri-S LLC output driver
+42 52 C0 ; ADI Required Write
+42 80 51 ; ADI Required Write
+42 81 51 ; ADI Required Write
+42 82 68 ; ADI Required Write
+42 5D 3C ; Enable Diagnostic pin 1 - Level=1.125V
+42 5E 3C ; Enable Diagnostic pin 1 - Level=1.125V
+42 5F A8 ; SHA gain for Div4
+42 5A 90 ; ADI Required Write
+42 60 B0 ; ADI Required Write
+42 0E 80 ; ADI Required Write
+42 B6 08 ; ADI Required Write
+42 C0 A0 ; ADI Required Write
+42 D9 44 ; ADI Required Write
+42 0E 00 ; ADI Required Write
+42 0E 40 ; Select User Sub Map 2
+42 E0 01 ; Select fast Switching Mode
+42 0E 00 ; Select User Map
+42 FE 88 ; Set CSI Map Address
+88 DE 02 ; Power up D-PHY
+88 D2 F7 ; ADI Required Write
+88 D8 65 ; ADI Required Write
+88 E0 09 ; ADI Required Write
+88 2C 00 ; ADI Required Write
+88 00 00 ; Power up CSI Tx --done--
+End
+
+##CVBS Fast Switch I2P##
+:I2P FAST SWITCH Single Ended In Ain1, MIPI 480p/576p Out:
+delay 10 ; 
+42 0F 00 ; Exit Power Down Mode
+42 00 00 ; INSEL = CVBS in on Ain 1
+42 0E 80 ; ADI Required Write
+42 9C 00 ; ADI Required Write
+42 9C FF ; ADI Required Write
+42 0E 00 ; Enter user Map
+42 03 4E ; ADI Required Write
+42 04 57 ; Power-up INTRQ pad 
+42 13 00 ; Enable INTRQ output driver
+42 17 41 ; select SH1
+42 1D C0 ; Tri-S LLC output driver
+42 52 CB ; ADI Required Write
+42 80 51 ; ADI Required Write
+42 81 51 ; ADI Required Write
+42 82 68 ; ADI Required Write
+42 5D 3C ; Enable Diagnostic pin 1 - Level=1.125V
+42 5E 3C ; Enable Diagnostic pin 2 - Level=1.125V
+42 0E 80 ; ADI Required Write
+42 D9 44 ; ADI Required Write
+42 0E 00 ; ADI Required Write
+42 0E 40 ; Select User Sub Map 2
+42 E0 01 ; Select fast Switching Mode
+42 0E 00 ; Select User Map
+42 FD 84 ; Set VPP Map
+84 A3 00 ; ADI Required Write
+84 5B 00 ; Enable advanced timing
+84 55 80 ; Enable the Deinterlacer for I2P
+42 FE 88 ; Set CSI Map Address
+88 01 20 ; ADI Required Write
+88 02 28 ; ADI Required Write
+88 03 38 ; ADI Required Write
+88 04 30 ; ADI Required Write
+88 05 30 ; ADI Required Write
+88 06 80 ; ADI Required Write
+88 07 70 ; ADI Required Write
+88 08 50 ; ADI Required Write
+88 DE 02 ; Power up D-PHY
+88 D2 F7 ; ADI Required Write
+88 D8 65 ; ADI Required Write
+88 E0 09 ; ADI Required Write
+88 2C 00 ; ADI Required Write
+88 1D 80 ; ADI Required Write
+88 00 00 ; Power up CSI Tx --done--
+End
+
+:I2P FAST SWITCH Single Ended In Ain2, MIPI 480p/576p Out:
+delay 10 ; 
+42 0F 00 ; Exit Power Down Mode
+42 00 01 ; INSEL = CVBS in on Ain 2
+42 0E 80 ; ADI Required Write
+42 9C 00 ; ADI Required Write
+42 9C FF ; ADI Required Write
+42 0E 00 ; Enter user Map
+42 03 4E ; ADI Required Write
+42 04 57 ; Power-up INTRQ pad 
+42 13 00 ; Enable INTRQ output driver
+42 17 41 ; select SH1
+42 1D C0 ; Tri-S LLC output driver
+42 52 CB ; ADI Required Write
+42 80 51 ; ADI Required Write
+42 81 51 ; ADI Required Write
+42 82 68 ; ADI Required Write
+42 5D 3C ; Enable Diagnostic pin 1 - Level=1.125V
+42 5E 3C ; Enable Diagnostic pin 2 - Level=1.125V
+42 0E 80 ; ADI Required Write
+42 D9 44 ; ADI Required Write
+42 0E 00 ; ADI Required Write
+42 0E 40 ; Select User Sub Map 2
+42 E0 01 ; Select fast Switching Mode
+42 0E 00 ; Select User Map
+42 FD 84 ; Set VPP Map
+84 A3 00 ; ADI Required Write
+84 5B 00 ; Enable advanced timing
+84 55 80 ; Enable the Deinterlacer for I2P
+42 FE 88 ; Set CSI Map Address
+88 01 20 ; ADI Required Write
+88 02 28 ; ADI Required Write
+88 03 38 ; ADI Required Write
+88 04 30 ; ADI Required Write
+88 05 30 ; ADI Required Write
+88 06 80 ; ADI Required Write
+88 07 70 ; ADI Required Write
+88 08 50 ; ADI Required Write
+88 DE 02 ; Power up D-PHY
+88 D2 F7 ; ADI Required Write
+88 D8 65 ; ADI Required Write
+88 E0 09 ; ADI Required Write
+88 2C 00 ; ADI Required Write
+88 1D 80 ; ADI Required Write
+88 00 00 ; Power up CSI Tx --done--
+End
+
+
+:I2P FAST SWITCH AUTODETECT CVBS Differential In Ain3,4, 480p/576p MIPI Out:
+delay 10 ; 
+42 0F 00 ; Exit Power Down Mode
+
+42 00 0F ; INSEL = CVBS_P in on Ain 3, CVBS_N in on Ain4
+42 0E 80 ; ADI Required Write
+42 9C 00 ; ADI Required Write
+42 9C FF ; ADI Required Write
+42 0E 00 ; Enter user Map
+42 03 4E ; ADI Required Write
+42 04 57 ; Power-up INTRQ pad
+42 13 00 ; Enable INTRQ output driver
+42 17 41 ; select SH1
+42 1D C0 ; Disable LLC output driver 
+42 52 C0 ; ADI Required Write
+42 80 51 ; ADI Required Write
+42 81 51 ; ADI Required Write
+42 82 68 ; ADI Required Write
+42 5D 3C ; Enable Diagnostic pin 1 - Level=1.125V
+42 5E 3C ; Enable Diagnostic pin 2 - Level=1.125V
+42 5F A8 ; SHA gain for Div4
+42 5A 90 ; ADI Required Write
+42 60 B0 ; ADI Required Write
+42 0E 80 ; ADI Required Write
+42 B6 08 ; ADI Required Write
+42 C0 A0 ; ADI Required Write
+42 D9 44 ; ADI Required Write
+42 0E 00 ; Select User Sub Map
+42 0E 40 ; Select User Sub Map 2
+42 E0 01 ; Select fast Switching Mode
+42 0E 00 ; Select User Sub Map
+42 FD 84 ; Set VPP Map Address
+84 A3 00 ; ADI Required Write
+84 5B 00 ; Enable Advanced Timing Mode
+84 55 80 ; Enable I2P
+42 FE 88 ; Set CSI Map Address
+88 01 20 ; ADI Required Write
+88 02 28 ; ADI Required Write
+88 03 38 ; ADI Required Write
+88 04 30 ; ADI Required Write
+88 05 30 ; ADI Required Write
+88 06 80 ; ADI Required Write
+88 07 70 ; ADI Required Write
+88 08 50 ; ADI Required Write
+88 DE 02 ; Power up D-PHY
+88 D2 F7 ; ADI Required Write
+88 D8 65 ; ADI Required Write
+88 E0 09 ; ADI Required Write
+88 2C 00 ; ADI Required Write
+88 1D 80 ; ADI Required Write
+88 00 00 ; Power up CSI TX
+End
+
+:I2P FAST SWITCH AUTODETECT CVBS Differential In Ain5,6, 480p/576p MIPI Out:
+delay 10 ; 
+42 0F 00 ; Exit Power Down Mode
+42 00 11 ; INSEL = CVBS_P in on Ain 5, CVBS_N in on Ain6
+42 0E 80 ; ADI Required Write
+42 9C 00 ; ADI Required Write
+42 9C FF ; ADI Required Write
+42 0E 00 ; Enter user Map
+42 03 4E ; Tri-S Output Drivers, PwrDwn 656 pads
+42 04 57 ; Power-up INTRQ pad
+42 13 00 ; Enable INTRQ output driver
+42 17 41 ; select SH1
+42 1D 40 ; Enable LLC output driver
+42 52 C0 ; ADI Required Write
+42 80 51 ; ADI Required Write
+42 81 51 ; ADI Required Write
+42 82 68 ; ADI Required Write
+42 5D 3C ; Enable Diagnostic pin 1 - Level=1.125V
+42 5E 3C ; Enable Diagnostic pin 2 - Level=1.125V
+42 5F A8 ; SHA gain for Div4
+42 5A 90 ; ADI Required Write
+42 60 B0 ; ADI Required Write
+42 0E 80 ; ADI Required Write
+42 B6 08 ; ADI Required Write
+42 C0 A0 ; ADI Required Write
+42 D9 44 ; ADI Required Write
+42 0E 00 ; Select User Sub Map
+42 0E 40 ; Select User Sub Map 2
+42 E0 01 ; Select fast Switching Mode
+42 0E 00 ; Select User Sub Map
+42 FD 84 ; Set VPP Map Address
+84 A3 00 ; ADI Required Write
+84 5B 00 ; Enable Advanced Timing Mode
+84 55 80 ; Enable I2P
+42 FE 88 ; Set CSI Map Address
+88 01 20 ; ADI Required Write
+88 02 28 ; ADI Required Write
+88 03 38 ; ADI Required Write
+88 04 30 ; ADI Required Write
+88 05 30 ; ADI Required Write
+88 06 80 ; ADI Required Write
+88 07 70 ; ADI Required Write
+88 08 50 ; ADI Required Write
+88 DE 02 ; Power up D-PHY
+88 D2 F7 ; ADI Required Write
+88 D8 65 ; ADI Required Write
+88 E0 09 ; ADI Required Write
+88 2C 00 ; ADI Required Write
+88 1D 80 ; ADI Required Write
+88 00 00 ; Power up CSI TX
+End
+
+##YC AUTODETECT##
+:YC In Ain1,2, MIPI Out:
+delay 10 ; 	
+42 0F 00 ; Exit Power Down Mode
+42 00 08 ; Insel=YC1, y=Ain1, C=Ain2
+42 0E 80 ; ADI Required Write 
+42 9C 00 ; ADI Required Write 
+42 9C FF ; ADI Required Write 
+42 0E 00 ; Enter user Map
+42 03 4E ; ADI Required Write 
+42 04 57 ; Power-up INTRQ pad
+42 13 00 ; Enable INTRQ output driver
+42 1D C0 ; Tri-S LLC output driver
+42 53 CE ; ADI Required Write 
+42 80 51 ; ADI Required Write 
+42 81 51 ; ADI Required Write 
+42 82 68 ; ADI Required Write 
+42 5D 3C ; Enable Diagnostic pin 1 - Level=1.125V 
+42 5E 3C ; Enable Diagnostic pin 2 - Level=1.125V 
+42 FE 88 ; Set CSI Map Address
+88 DE 02 ; Power Up D-PHY
+88 D2 F7 ; ADI Required Write 
+88 D8 65 ; ADI Required Write 
+88 E0 09 ; ADI Required Write 
+88 2C 00 ; ADI Required Write 
+88 00 00 ; Power up CSI TX
+End
+
+:I2P YC In Ain1,2, 480p/576p MIPI Out:
+delay 10 ; 
+42 0F 00 ; Exit Power Down Mode
+42 00 08 ; Insel=YC1, y=Ain1, C=Ain2
+42 0E 80 ; ADI Required Write 
+42 9C 00 ; ADI Required Write 
+42 9C FF ; ADI Required Write 
+42 0E 00 ; Enter user Map
+42 03 4E ; ADI Required Write 
+42 04 57 ; Power-up INTRQ pin
+42 13 00 ; Enable INTRQ output driver
+42 1D C0 ; Tri-S LLC output driver
+42 53 CE ; ADI Required Write
+42 80 51 ; ADI Required Write 
+42 81 51 ; ADI Required Write 
+42 82 68 ; ADI Required Write 
+42 5D 3C ; Enable Diagnostic pin 1 - Level=1.125V 
+42 5E 3C ; Enable Diagnostic pin 2 - Level=1.125V 
+42 FD 84 ; Set VPP Map Address
+84 A3 00 ; ADI Required Write
+84 5B 00 ; Advanced Timing Enabled
+84 55 80 ; Enable I2P
+42 FE 88 ; Set CSI Map Address
+88 01 20 ; ADI Required Write
+88 02 28 ; ADI Required Write
+88 03 38 ; ADI Required Write
+88 04 30 ; ADI Required Write
+88 05 30 ; ADI Required Write
+88 06 80 ; ADI Required Write
+88 07 70 ; ADI Required Write
+88 08 50 ; ADI Required Write
+88 DE 02 ; Power Up D-PHY
+88 D2 F7 ; ADI Required Write
+88 D8 65 ; ADI Required Write
+88 E0 09 ; ADI Required Write
+88 2C 00 ; ADI Required Write
+88 1D 80 ; ADI Required Write
+88 00 00 ; Power up CSI TX
+End
+
+
+##YPrPb AUTODETECT##
+:YPrPb In Ain1,2,3, MIPI Out:
+delay 10 ; 
+42 0F 00 ; Exit Power Down Mode
+42 00 0C ; INSEL = YPrPb-1, Y=Ain1, Pb=Ain2, Pr=Ain3
+42 0E 80 ; ADI Required Write
+42 9C 00 ; ADI Required Write
+42 9C FF ; ADI Required Write
+42 0E 00 ; Enter user Map
+42 03 4E ; ADI Required Write
+42 04 57 ; Power-up INTRQ pad
+42 13 00 ; Enable INTRQ output driver
+42 1D C0 ; Tri-S LLC output driver
+42 54 C0 ; ADI Required Write
+42 80 51 ; ADI Required Write
+42 81 51 ; ADI Required Write
+42 82 68 ; ADI Required Write
+42 5D 3C ; Enable Diagnostic pin 1 - Level=1.125V 
+42 5E 3C ; Enable Diagnostic pin 2 - Level=1.125V 
+42 FE 88 ; Set CSI Map Address
+88 DE 02 ; Power Up D-PHY
+88 D2 F7 ; ADI Required Write
+88 D8 65 ; ADI Required Write
+88 E0 09 ; ADI Required Write
+88 2C 00 ; ADI Required Write
+88 00 00 ; Power up CSI TX
+End
+
+:I2P YPrPb In Ain1,2,3, 480p/576p MIPI Out:
+delay 10 ; 
+42 0F 00 ; Exit Power Down Mode
+42 00 0C ; INSEL = YPrPb-1, Y=Ain1, Pb=Ain2, Pr=Ain3
+42 0E 80 ; ADI Required Write
+42 9C 00 ; ADI Required Write
+42 9C FF ; ADI Required Write
+42 0E 00 ; Enter user Map
+42 03 4E ; ADI Required Write
+42 04 57 ; Power-up INTRQ pad
+42 13 00 ; Enable INTRQ output driver
+42 1D C0 ; Tri-S LLC output driver
+42 54 C0 ; ADI Required Write
+42 80 51 ; ADI Required Write
+42 81 51 ; ADI Required Write
+42 82 68 ; ADI Required Write
+42 5D 3C ; Enable Diagnostic pin 1 - Level=1.125V 
+42 5E 3C ; Enable Diagnostic pin 2 - Level=1.125V 
+42 FD 84 ; Set VPP Map Address
+84 A3 00 ; ADI Required Write
+84 5B 00 ; Advanced Timing
+84 55 80 ; Enable I2P
+42 FE 88 ; Set CSI Map Address
+88 01 20 ; ADI Required Write
+88 02 28 ; ADI Required Write
+88 03 38 ; ADI Required Write
+88 04 30 ; ADI Required Write
+88 05 30 ; ADI Required Write
+88 06 80 ; ADI Required Write
+88 07 70 ; ADI Required Write
+88 08 50 ; ADI Required Write
+88 DE 02 ; Power Up D-PHY
+88 D2 F7 ; ADI Required Write
+88 D8 65 ; ADI Required Write
+88 E0 09 ; ADI Required Write
+88 2C 00 ; ADI Required Write
+88 1D 80 ; ADI Required Write
+88 00 00 ; Power up CSI TX
+End
